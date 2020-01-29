@@ -1,6 +1,7 @@
 - name: Install Docker for Alpine
   hosts: all
   become: yes
+
 #https://github.com/freedomofpress/ansible-role-docker-registry
   vars:
     docker_registry_data_directory: /var/www/docker-registry
@@ -11,6 +12,9 @@
       file:
         state: directory
         path: "{{ docker_registry_data_directory }}"
+        recurse: yes
+        owner: vagrant
+        group: vagrant        
         mode: "0755"
 
     - name: Run docker registry container
