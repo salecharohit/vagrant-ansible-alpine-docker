@@ -35,7 +35,6 @@ Vagrant.configure(2) do |config|
     adduser vagrant docker
     service docker start
     sleep 20
-    # docker run -d -p 5000:5000 --restart=always --name registry -v /home/vagrant:/var/lib/registry registry:2
   fi
   SHELL
 
